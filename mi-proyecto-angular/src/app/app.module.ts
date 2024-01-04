@@ -10,14 +10,13 @@ import { AppComponent } from './app.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteService } from './clientes/cliente.service';
 // Importamos el nuevo componente InventarioComponent
-import { InventarioComponent } from './inventario/inventario.component';
-import { AgregarProductoComponent } from './inventario/agregar-producto/agregar-producto.component'; // Asegúrate de que la ruta es correcta
 import { AuthGuard } from './guards/auth.guard';
 import { FormsModule } from '@angular/forms';
 import { FormComponent } from './clientes/form.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { InteresesComponent } from './intereses/intereses.component';
 
 // 2. Definimos las rutas de nuestra aplicación
 // Cada objeto en este array define una ruta en nuestra aplicación
@@ -32,24 +31,20 @@ const routes: Routes = [
   // Cuando los usuarios navegan a '/clientes', Angular renderizará el ClientesComponent.
   { path: 'login', component: LoginComponent },
   { path: 'clientes', component: ClientesComponent, canActivate:[AuthGuard] },
-
-  // Añadimos una nueva ruta para el componente InventarioComponent
-  // Cuando los usuarios navegan a '/inventario', Angular renderizará el InventarioComponent.
-  { path: 'inventario', component: InventarioComponent, canActivate:[AuthGuard] }, // Asegúrate de que el componente está correctamente definido y exportado
   { path: 'clientes/form', component: FormComponent},
-  { path: 'clientes/form/:id', component: FormComponent}
+  { path: 'clientes/form/:id', component: FormComponent},
+  { path: 'intereses', component: InteresesComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientesComponent,
-    InventarioComponent,
-    AgregarProductoComponent,
     FormComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    InteresesComponent
   ],
   imports: [
     BrowserModule,

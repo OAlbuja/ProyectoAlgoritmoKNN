@@ -5,7 +5,6 @@ export class cliente {
     nombre?: string;
     apellido?: string;
     email?: string;
-    roles?: string;
     createAt?: string;
     semestreCursado?: number;
   }
