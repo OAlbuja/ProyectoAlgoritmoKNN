@@ -1,0 +1,33 @@
+<!-- Título de la Lista de Inventario -->
+<h1 id="inventarioTitulo">Lista de Inventario</h1>
+
+<button (click)="navegarAgregarProducto()" class="btn btn-primary">Agregar Producto</button><!--Agregando botones-->
+
+<!-- Crear una tabla para mostrar los productos -->
+<table class="table" id="inventarioTable">
+    <thead>
+      <tr>
+        <th>ID Producto</th>
+        <th>Code Number</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Usar *ngFor para iterar sobre los productos y mostrarlos en la tabla -->
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.idProducto }}</td>
+        <td>{{ producto.codeNumber }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.precio }}</td>
+        <td>{{ producto.cantidad }}</td>
+        <td>
+          <!-- Botones para editar y eliminar -->
+          <button class="btn btn-warning">Editar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+</table>

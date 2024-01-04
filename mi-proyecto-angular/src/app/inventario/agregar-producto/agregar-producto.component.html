@@ -1,0 +1,29 @@
+<!-- agregar-producto.component.html -->
+
+<div class="container mt-5">
+    <h2>Agregar Producto</h2>
+    <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="idProducto" class="form-label">ID Producto</label>
+        <input type="text" class="form-control" id="idProducto" formControlName="idProducto" required>
+      </div>
+      <div class="mb-3">
+        <label for="codeNumber" class="form-label">Número de Código</label>
+        <input type="text" class="form-control" id="codeNumber" formControlName="codeNumber" required>
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="precio" formControlName="precio" required>
+      </div>
+      <div class="mb-3">
+        <label for="cantidad" class="form-label">Cantidad</label>
+        <input type="number" class="form-control" id="cantidad" formControlName="cantidad" required>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid">Agregar Producto</button>
+    </form>
+  </div>
+  
