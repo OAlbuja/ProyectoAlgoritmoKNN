@@ -12,7 +12,7 @@ import { ClienteService } from './clientes/cliente.service';
 // Importamos el nuevo componente InventarioComponent
 import { AuthGuard } from './guards/auth.guard';
 import { FormsModule } from '@angular/forms';
-import { FormComponent } from './clientes/form.component';
+import { ClienteFormComponent } from './clientes/cliente-form.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -31,8 +31,8 @@ const routes: Routes = [
   // Cuando los usuarios navegan a '/clientes', Angular renderizará el ClientesComponent.
   { path: 'login', component: LoginComponent },
   { path: 'clientes', component: ClientesComponent, canActivate:[AuthGuard] },
-  { path: 'clientes/form', component: FormComponent},
-  { path: 'clientes/form/:id', component: FormComponent},
+  { path: 'clientes/clienteform', component: ClienteFormComponent },
+  { path: 'clientes/clienteform/:id', component: ClienteFormComponent },
   { path: 'intereses', component: InteresesComponent}
 ];
 
@@ -40,7 +40,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ClientesComponent,
-    FormComponent,
+    ClienteFormComponent,
     LoginComponent,
     HeaderComponent,
     FooterComponent,

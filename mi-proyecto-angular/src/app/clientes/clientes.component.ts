@@ -13,19 +13,19 @@ import swal from 'sweetalert2';
 })
 export class ClientesComponent implements OnInit {
 
-  
-  clientes: cliente[]= [];
 
-  constructor(private clienteService: ClienteService) {     
+  clientes: cliente[] = [];
+
+  constructor(private clienteService: ClienteService) {
   }
 
   ngOnInit() {
     this.clienteService.getClientes().subscribe(
       clientes => this.clientes = clientes
     );
-  }  
+  }
 
-  delete (cliente: cliente): void{
+  delete(cliente: cliente): void {
     swal({
       title: '¿Estás Seguro?',
       text: `¿Seguro que desea eliminar al cliente ${cliente.nombre} ${cliente.apellido}?`,
@@ -43,7 +43,7 @@ export class ClientesComponent implements OnInit {
       if (result.value) {
         this.clienteService.delete(cliente.id!).subscribe(
           response => {
-            this.clientes = this.clientes.filter (cli => cli !== cliente)
+            this.clientes = this.clientes.filter(cli => cli !== cliente)
             swal(
               'Cliente Eliminado!',
               `Cliente ${cliente.nombre} eliminado con éxito.`,
@@ -51,10 +51,10 @@ export class ClientesComponent implements OnInit {
             )
           }
         )
-        
-      } 
+
+      }
     })
-    
+
   }
 
 }

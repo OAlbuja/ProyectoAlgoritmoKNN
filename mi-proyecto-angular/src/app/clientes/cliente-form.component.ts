@@ -1,3 +1,4 @@
+//cliente-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { cliente } from './cliente';
 import { ClienteService } from './cliente.service';
@@ -5,10 +6,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html'
+  selector: 'app-cliente-form',
+  templateUrl: './cliente-form.component.html'
 })
-export class FormComponent implements OnInit {
+export class ClienteFormComponent implements OnInit {
 
   public cliente: cliente = new cliente()
   public titulo: string = "Crear Usuario"

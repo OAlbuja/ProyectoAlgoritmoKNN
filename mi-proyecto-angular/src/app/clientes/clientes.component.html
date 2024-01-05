@@ -1,9 +1,10 @@
+<!-- clientes.component.html -->
 <!-- Título de la Lista de Clientes -->
 <h1 id="clientesTitulo">Lista de Usuarios</h1>
 
 <!-- Botón para agregar un nuevo cliente -->
 <div class="my-2 text-left">
-  <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']">Crear Usuario</button>
+  <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/clienteform']">Crear Usuario</button>
 </div>
 
 <!-- Crear una tabla para mostrar los clientes -->
@@ -35,7 +36,7 @@
 
         <td>
           <!-- Botones para editar y eliminar -->
-          <button type="button" name = "editar" [routerLink]="['/clientes/form', cliente.id]" class="btn btn-warning">Editar</button>
+          <button type="button" name = "editar" [routerLink]="['/clientes/clienteform', cliente.id]" class="btn btn-warning">Editar</button>
           <button type="button" name = "eliminar" (click)='delete(cliente)' class="btn btn-danger">Eliminar</button>
 
         </td>
