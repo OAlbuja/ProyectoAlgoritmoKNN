@@ -12,12 +12,12 @@
     <thead>
       <tr>
         <th>ID</th>
+        <th>Fecha Creación</th>
         <th>Cedula</th>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Email</th>
         <!-- <th>Roles</th> -->
-        <th>Fecha Creación</th>
         <th>Semestre actual</th>
         <th>Acciones</th>
 
@@ -27,11 +27,11 @@
       <!-- Usar *ngFor para iterar sobre los clientes y mostrarlos en la tabla -->
       <tr *ngFor="let cliente of clientes">
         <td>{{ cliente.id }}</td>
+        <td>{{ cliente.createAt }}</td>
         <td>{{ cliente.cedula }}</td>
         <td>{{ cliente.nombre }}</td>
         <td>{{ cliente.apellido }}</td>
         <td>{{ cliente.email }}</td>
-        <td>{{ cliente.createAt }}</td>
         <td>{{ cliente.semestreCursado }}</td>
 
         <td>

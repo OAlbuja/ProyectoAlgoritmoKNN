@@ -16,8 +16,9 @@ import { ClienteFormComponent } from './clientes/cliente-form.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { InteresesComponent } from './intereses/intereses.component';
-import { InteresFormComponent } from './intereses/interes-form.component';
+import { ClienteInteresComponent } from './cliente-interes/cliente-interes.component';
+import { ClienteInteresFormComponent } from './cliente-interes/cliente-interes-form.component';
+
 
 // 2. Definimos las rutas de nuestra aplicación
 // Cada objeto en este array define una ruta en nuestra aplicación
@@ -34,7 +35,9 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent, canActivate:[AuthGuard] },
   { path: 'clientes/clienteform', component: ClienteFormComponent },
   { path: 'clientes/clienteform/:id', component: ClienteFormComponent },
-  { path: 'intereses', component: InteresesComponent}
+  { path: 'clientes-interes', component: ClienteInteresComponent},
+  { path: 'clientes-interes/clientes-interes-form', component: ClienteInteresFormComponent},
+  { path: 'clientes-interes/clientes-interes-form/:id', component: ClienteInteresFormComponent}
 ];
 
 @NgModule({
@@ -45,8 +48,8 @@ const routes: Routes = [
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    InteresesComponent,
-    InteresFormComponent
+    ClienteInteresComponent,
+    ClienteInteresFormComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   //se importan los servicios
-  providers: [ClienteService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
