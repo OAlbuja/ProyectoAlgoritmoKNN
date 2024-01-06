@@ -6,10 +6,11 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.udla.springboot.backend.apirest.dto.ClienteInteresDTO;
 import com.udla.springboot.backend.apirest.entity.ClienteInteres;
 import com.udla.springboot.backend.apirest.repositories.ClienteInteresRepository;
+import com.udla.springboot.backend.apirest.repositories.ClienteRepository;
+import com.udla.springboot.backend.apirest.repositories.InteresRepository;
 
 @Service
 public class ClienteInteresServiceImpl implements IClienteInteresService {
@@ -19,6 +20,18 @@ public class ClienteInteresServiceImpl implements IClienteInteresService {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    private ClienteRepository clienteRepository; // Inyección del repositorio de clientes
+
+    @Autowired
+    private InteresRepository interesRepository;
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ClienteInteresDTO> findClienteInteresesWithDetails() {
+        return clienteInteresRepository.findClienteInteresesWithDetails();
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -75,10 +88,36 @@ public class ClienteInteresServiceImpl implements IClienteInteresService {
     }
 
     private ClienteInteresDTO convertirADTO(ClienteInteres clienteInteres) {
-        return modelMapper.map(clienteInteres, ClienteInteresDTO.class);
+        ClienteInteresDTO dto = new ClienteInteresDTO();
+        dto.setId(clienteInteres.getId());
+        dto.setCreateAt(clienteInteres.getCreateAt());
+
+        // Asegúrate de que las entidades relacionadas no son nulas
+        if (clienteInteres.getCliente() != null) {
+            dto.setClienteId(clienteInteres.getCliente().getId());
+            dto.setClienteNombre(clienteInteres.getCliente().getNombre());
+            dto.setClienteApellido(clienteInteres.getCliente().getApellido());
+        }
+
+        if (clienteInteres.getInteres() != null) {
+            dto.setInteresId(clienteInteres.getInteres().getId());
+            dto.setInteresNombre(clienteInteres.getInteres().getNombre());
+        }
+
+        dto.setPonderacion(clienteInteres.getPonderacion());
+
+        return dto;
     }
 
     private ClienteInteres convertirAEntidad(ClienteInteresDTO clienteInteresDTO) {
-        return modelMapper.map(clienteInteresDTO, ClienteInteres.class);
+        ClienteInteres clienteInteres = modelMapper.map(clienteInteresDTO, ClienteInteres.class);
+
+        // Aquí se utiliza el repositorio directamente para buscar la entidad Cliente
+        clienteInteres.setCliente(clienteRepository.findById(clienteInteresDTO.getClienteId()).orElse(null));
+        // Aquí se utiliza el repositorio directamente para buscar la entidad Interes
+        clienteInteres.setInteres(interesRepository.findById(clienteInteresDTO.getInteresId()).orElse(null));
+
+        return clienteInteres;
     }
+
 }

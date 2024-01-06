@@ -6,14 +6,59 @@ public class ClienteInteresDTO {
 	private Long id;
 	private Date createAt;
 	private Long clienteId;
+	private String clienteNombre;
+	private String clienteApellido;
 	private Long interesId;
+	private String interesNombre;
 	private Integer ponderacion;
+
+	// Constructor vacío
+	public ClienteInteresDTO() {
+	}
+
+	// Constructor completo
+	public ClienteInteresDTO(Long id, Date createAt, Long clienteId, String clienteNombre, String clienteApellido,
+			Long interesId,
+			String interesNombre, Integer ponderacion) {
+		this.id = id;
+		this.createAt = createAt;
+		this.clienteId = clienteId;
+		this.clienteNombre = clienteNombre;
+		this.clienteApellido = clienteApellido;
+		this.interesId = interesId;
+		this.interesNombre = interesNombre;
+		this.ponderacion = ponderacion;
+	}
 
 	// Getters y setters
 	// ...
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getClienteNombre() {
+		return clienteNombre;
+	}
+
+	public void setClienteNombre(String clienteNombre) {
+		this.clienteNombre = clienteNombre;
+	}
+
+	public String getClienteApellido() {
+		return clienteApellido;
+	}
+
+	public void setClienteApellido(String clienteApellido) {
+		this.clienteApellido = clienteApellido;
+	}
+
+	public String getInteresNombre() {
+		return interesNombre;
+	}
+
+	public void setInteresNombre(String interesNombre) {
+		this.interesNombre = interesNombre;
 	}
 
 	public void setId(Long id) {
@@ -59,7 +104,10 @@ public class ClienteInteresDTO {
 				"id=" + id +
 				", createAt=" + createAt +
 				", clienteId=" + clienteId +
+				", clienteNombre='" + clienteNombre + '\'' +
+				", clienteApellido='" + clienteApellido + '\'' +
 				", interesId=" + interesId +
+				", interesNombre='" + interesNombre + '\'' +
 				", ponderacion=" + ponderacion +
 				'}';
 	}

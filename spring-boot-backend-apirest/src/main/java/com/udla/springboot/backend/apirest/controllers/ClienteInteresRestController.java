@@ -21,6 +21,11 @@ public class ClienteInteresRestController {
     @Autowired
     private KNNService knnService;
 
+    @GetMapping("/cliente-intereses/detailed")
+    public List<ClienteInteresDTO> obtenerClienteInteresesConDetalles() {
+        return clienteInteresService.findClienteInteresesWithDetails();
+    }
+
     @GetMapping("/cliente-intereses/{clienteId}/recomendaciones")
     public List<ClienteDistanciaDTO> obtenerRecomendaciones(@PathVariable Long clienteId, @RequestParam int k) {
         return knnService.encontrarVecinosCercanos(clienteId, k);

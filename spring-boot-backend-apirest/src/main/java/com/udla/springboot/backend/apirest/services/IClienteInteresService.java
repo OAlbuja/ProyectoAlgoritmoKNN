@@ -5,6 +5,7 @@ import java.util.List;
 import com.udla.springboot.backend.apirest.dto.ClienteInteresDTO;
 
 public interface IClienteInteresService {
+    List<ClienteInteresDTO> findClienteInteresesWithDetails();
     List<ClienteInteresDTO> findAll();
     ClienteInteresDTO findById(Long id);
     ClienteInteresDTO save(ClienteInteresDTO clienteInteresDTO);
@@ -13,4 +14,3 @@ public interface IClienteInteresService {
     List<Long> findAllClienteIdsExcept(Long clienteId); // Nuevo método
 }
 
- 
