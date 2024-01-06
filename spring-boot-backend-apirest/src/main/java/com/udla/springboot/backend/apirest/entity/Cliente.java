@@ -27,6 +27,11 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "create_at")
+    @Temporal(TemporalType.DATE)
+    private Date createAt;
+
     private String cedula;
     private String nombre;
     private String apellido;
@@ -37,10 +42,6 @@ public class Cliente implements Serializable {
     @ManyToMany
     @JoinTable(name = "cliente_roles", joinColumns = @JoinColumn(name = "cliente_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles;
-
-    @Column(name = "create_at")
-    @Temporal(TemporalType.DATE)
-    private Date createAt;
 
     @OneToMany(mappedBy = "cliente1")
     private List<Match> matchesAsCliente1;

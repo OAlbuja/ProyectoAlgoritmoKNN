@@ -11,26 +11,27 @@ import java.util.Date;
 public class ClienteDTO {
 
 	private Long id;
+	private Date createAt;
 	private String cedula;
 	private String nombre;
 	private String apellido;
 	private String email;
 	// private Set<String> roles;
-	private Date createAt;
 	private Integer semestreCursado;
 	// private List<ClienteInteresDTO> clienteInteresesDTO;
 
 	// public ClienteDTO() {
-	// 	this.clienteInteresesDTO = new ArrayList<>();
+	// this.clienteInteresesDTO = new ArrayList<>();
 	// }
 
 	// // Getters y setters para clienteInteresesDTO
 	// public List<ClienteInteresDTO> getClienteInteresesDTO() {
-	// 	return clienteInteresesDTO;
+	// return clienteInteresesDTO;
 	// }
 
-	// public void setClienteInteresesDTO(List<ClienteInteresDTO> clienteInteresesDTO) {
-	// 	this.clienteInteresesDTO = clienteInteresesDTO;
+	// public void setClienteInteresesDTO(List<ClienteInteresDTO>
+	// clienteInteresesDTO) {
+	// this.clienteInteresesDTO = clienteInteresesDTO;
 	// }
 
 	public Long getId() {
@@ -74,13 +75,13 @@ public class ClienteDTO {
 	}
 
 	// public Set<String> getRoles() {
-	// 	return roles;
+	// return roles;
 	// }
 
 	// public void setRoles(Set<Rol> roles) {
-	// 	this.roles = roles.stream()
-	// 			.map(Rol::getNombre)
-	// 			.collect(Collectors.toSet());
+	// this.roles = roles.stream()
+	// .map(Rol::getNombre)
+	// .collect(Collectors.toSet());
 	// }
 
 	public Date getCreateAt() {
@@ -103,14 +104,14 @@ public class ClienteDTO {
 	public String toString() {
 		return "ClienteDTO{" +
 				"id=" + id +
+				", createAt=" + createAt +
 				", cedula=" + cedula +
 				", nombre=" + nombre +
 				", apellido=" + apellido +
 				", email=" + email +
 				// ", roles=" + roles +
-				", createAt=" + createAt +
 				", semestreCursado=" + semestreCursado;
-				// ", clienteInteresesDTO=" + clienteInteresesDTO;
+		// ", clienteInteresesDTO=" + clienteInteresesDTO;
 	}
 
 }

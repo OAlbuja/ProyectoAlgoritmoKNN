@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InteresesComponent } from './intereses/intereses.component';
+import { InteresFormComponent } from './intereses/interes-form.component';
 
 // 2. Definimos las rutas de nuestra aplicación
 // Cada objeto en este array define una ruta en nuestra aplicación
@@ -44,7 +45,8 @@ const routes: Routes = [
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    InteresesComponent
+    InteresesComponent,
+    InteresFormComponent
   ],
   imports: [
     BrowserModule,
