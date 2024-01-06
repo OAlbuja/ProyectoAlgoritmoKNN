@@ -1,6 +1,7 @@
 // cliente-interes.service.ts
 import { Injectable } from '@angular/core';
 import { clienteInteres } from './cliente-interes';
+import { ClienteDistanciaDTO } from './cliente-distancia.dto';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -37,4 +38,13 @@ export class ClienteInteresService {
   delete(id: number): Observable<clienteInteres> {
     return this.http.delete<clienteInteres>(`${this.urlEndPoint}/${id}`, { headers: this.httpHeaders })
   }
+
+  getKnnRecomendaciones(clienteId: number, k: number): Observable<ClienteDistanciaDTO[]> {
+    // Construir la URL para la solicitud
+    const url = `${this.urlEndPoint}/${clienteId}/recomendaciones?k=${k}`;
+
+    // Hacer la solicitud GET y devolver el Observable
+    return this.http.get<ClienteDistanciaDTO[]>(url);
+  }
+
 }

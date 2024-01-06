@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { clienteInteres } from './cliente-interes';
 import { ClienteInteresService } from './cliente-interes.service';
+import { ClienteDistanciaDTO } from './cliente-distancia.dto';
 import swal from 'sweetalert2';
 
 @Component({
@@ -17,11 +18,26 @@ export class ClienteInteresComponent implements OnInit {
   constructor(private clienteInteresService: ClienteInteresService) {
   }
 
+  obtenerRecomendacionesKnn(clienteId: number, k: number) {
+    this.clienteInteresService.getKnnRecomendaciones(clienteId, k).subscribe(
+      recomendaciones => {
+        // Manejar las recomendaciones aquí
+        console.log(recomendaciones);
+      },
+      error => {
+        // Manejar el error aquí
+        console.error(error);
+      }
+    );
+  }
+
   ngOnInit() {
     this.clienteInteresService.getClientesInteres().subscribe(
       clientesInteres => this.clientesInteres = clientesInteres
     );
   }
+
+
 
   delete(clienteInteres: clienteInteres): void {
     swal({

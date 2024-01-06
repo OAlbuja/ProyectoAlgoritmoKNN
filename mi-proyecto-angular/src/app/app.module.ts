@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ClienteInteresComponent } from './cliente-interes/cliente-interes.component';
 import { ClienteInteresFormComponent } from './cliente-interes/cliente-interes-form.component';
+import { KnnRecomendacionesComponent } from './knn-recomendaciones/knn-recomendaciones.component';
 
 
 // 2. Definimos las rutas de nuestra aplicación
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: 'clientes/clienteform/:id', component: ClienteFormComponent },
   { path: 'clientes-interes', component: ClienteInteresComponent},
   { path: 'clientes-interes/clientes-interes-form', component: ClienteInteresFormComponent},
-  { path: 'clientes-interes/clientes-interes-form/:id', component: ClienteInteresFormComponent}
+  { path: 'clientes-interes/clientes-interes-form/:id', component: ClienteInteresFormComponent},
+  { path: 'knn-recomendaciones', component: KnnRecomendacionesComponent }
 ];
 
 @NgModule({
@@ -49,7 +51,8 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     ClienteInteresComponent,
-    ClienteInteresFormComponent
+    ClienteInteresFormComponent,
+    KnnRecomendacionesComponent
   ],
   imports: [
     BrowserModule,
