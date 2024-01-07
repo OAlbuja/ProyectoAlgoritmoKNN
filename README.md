@@ -3,6 +3,10 @@
 ## Descripción
 Este proyecto es un sistema web diseñado para estudiantes de Ingeniería de Software de la Universidad de las Américas. Su principal finalidad es facilitar la conexión entre estudiantes con intereses similares, empleando algoritmos avanzados como k-NN (k-Nearest Neighbors) y la distancia euclidiana.
 
+![image](https://github.com/OAlbuja/ProyectoAlgoritmoKNN/assets/121888131/1f930932-3d37-4aed-b1d3-89e338352f03)
+
+![image](https://github.com/OAlbuja/ProyectoAlgoritmoKNN/assets/121888131/33f246ea-bcf6-494e-bdfb-9ad169e3c384)
+
 ## Funcionalidades Principales
 - **Análisis de Intereses:** Analiza las respuestas de los usuarios a una serie de preguntas para identificar intereses comunes.
 - **Recomendaciones Personalizadas:** Emplea el algoritmo k-NN y la distancia euclidiana para recomendar conexiones entre estudiantes.
