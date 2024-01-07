@@ -19,6 +19,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ClienteInteresComponent } from './cliente-interes/cliente-interes.component';
 import { ClienteInteresFormComponent } from './cliente-interes/cliente-interes-form.component';
 import { KnnRecomendacionesComponent } from './knn-recomendaciones/knn-recomendaciones.component';
+import { TendenciasInteresesComponent } from './tendencias-intereses/tendencias-intereses.component';
+import { InteresesUsuariosComponent } from './intereses-usuarios/intereses-usuarios.component';
 
 
 // 2. Definimos las rutas de nuestra aplicación
@@ -33,13 +35,16 @@ const routes: Routes = [
   // La ruta 'clientes' está asociada con el componente ClientesComponent.
   // Cuando los usuarios navegan a '/clientes', Angular renderizará el ClientesComponent.
   { path: 'login', component: LoginComponent },
-  { path: 'clientes', component: ClientesComponent, canActivate:[AuthGuard] },
+  { path: 'clientes', component: ClientesComponent},
+  //{ path: 'clientes', component: ClientesComponent, canActivate:[AuthGuard] },
   { path: 'clientes/clienteform', component: ClienteFormComponent },
   { path: 'clientes/clienteform/:id', component: ClienteFormComponent },
   { path: 'clientes-interes', component: ClienteInteresComponent},
   { path: 'clientes-interes/clientes-interes-form', component: ClienteInteresFormComponent},
   { path: 'clientes-interes/clientes-interes-form/:id', component: ClienteInteresFormComponent},
-  { path: 'knn-recomendaciones', component: KnnRecomendacionesComponent }
+  { path: 'knn-recomendaciones', component: KnnRecomendacionesComponent },
+  { path: 'tendencias-intereses', component: TendenciasInteresesComponent },
+  { path: 'intereses-usuarios', component: InteresesUsuariosComponent }
 ];
 
 @NgModule({
@@ -52,7 +57,9 @@ const routes: Routes = [
     FooterComponent,
     ClienteInteresComponent,
     ClienteInteresFormComponent,
-    KnnRecomendacionesComponent
+    KnnRecomendacionesComponent,
+    TendenciasInteresesComponent,
+    InteresesUsuariosComponent
   ],
   imports: [
     BrowserModule,

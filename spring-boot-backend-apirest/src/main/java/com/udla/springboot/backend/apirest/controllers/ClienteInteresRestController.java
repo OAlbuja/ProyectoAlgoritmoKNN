@@ -1,12 +1,19 @@
 package com.udla.springboot.backend.apirest.controllers;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;
 
 import com.udla.springboot.backend.apirest.dto.ClienteDistanciaDTO;
 import com.udla.springboot.backend.apirest.dto.ClienteInteresDTO;
+import com.udla.springboot.backend.apirest.dto.InteresConUsuariosDTO;
+import com.udla.springboot.backend.apirest.dto.TendenciaInteresDTO;
 import com.udla.springboot.backend.apirest.services.IClienteInteresService;
 import com.udla.springboot.backend.apirest.services.KNNService;
 
@@ -20,6 +27,27 @@ public class ClienteInteresRestController {
 
     @Autowired
     private KNNService knnService;
+
+    // En tu controlador REST
+
+    @GetMapping("/intereses-usuarios")
+    public List<InteresConUsuariosDTO> listarInteresesConUsuarios() {
+        return clienteInteresService.obtenerInteresesConUsuarios();
+    }
+
+    @GetMapping("/cliente-intereses/tendencias")
+    public List<TendenciaInteresDTO> obtenerTendenciasIntereses(
+            @RequestParam("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate inicio,
+            @RequestParam("fin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fin) {
+
+        Date inicioDate = java.sql.Date.valueOf(inicio);
+        Date finDate = java.sql.Date.valueOf(fin);
+
+        // Limitar a los 10 primeros resultados
+        Pageable topTen = PageRequest.of(0, 10);
+
+        return clienteInteresService.findTendenciasIntereses(inicioDate, finDate, topTen);
+    }
 
     @GetMapping("/cliente-intereses/detailed")
     public List<ClienteInteresDTO> obtenerClienteInteresesConDetalles() {

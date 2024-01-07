@@ -1,12 +1,16 @@
 package com.udla.springboot.backend.apirest.services;
 
 import java.util.List;
+import java.util.Date;
+import org.springframework.data.domain.Pageable;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.udla.springboot.backend.apirest.dto.ClienteInteresDTO;
+import com.udla.springboot.backend.apirest.dto.InteresConUsuariosDTO;
+import com.udla.springboot.backend.apirest.dto.TendenciaInteresDTO;
 import com.udla.springboot.backend.apirest.entity.ClienteInteres;
 import com.udla.springboot.backend.apirest.repositories.ClienteInteresRepository;
 import com.udla.springboot.backend.apirest.repositories.ClienteRepository;
@@ -26,6 +30,18 @@ public class ClienteInteresServiceImpl implements IClienteInteresService {
 
     @Autowired
     private InteresRepository interesRepository;
+
+    // En ClienteInteresService o un servicio dedicado para consultas complejas
+
+    @Override
+    public List<InteresConUsuariosDTO> obtenerInteresesConUsuarios() {
+        return clienteInteresRepository.findInteresesConUsuarios();
+    }
+
+    @Transactional(readOnly = true)
+    public List<TendenciaInteresDTO> findTendenciasIntereses(Date inicio, Date fin, Pageable pageable) {
+        return clienteInteresRepository.findTendenciasIntereses(inicio, fin, pageable);
+    }
 
     @Override
     @Transactional(readOnly = true)
