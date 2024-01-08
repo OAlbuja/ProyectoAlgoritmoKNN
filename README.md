@@ -27,9 +27,10 @@ Este proyecto es un sistema web diseñado para estudiantes de Ingeniería de Sof
 ## Impacto Esperado
 Este sistema busca mejorar significativamente la interacción y colaboración entre estudiantes, adaptándose a un entorno educativo cada vez más digitalizado y orientado a la tecnología.
 
-## Instrucciones de Instalación y Uso
-- Instrucciones detalladas sobre cómo instalar y configurar el sistema.
-- Guía de uso para interactuar con la plataforma.
+## Instrucciones de Uso
+- Usuario contraseña de Acceso para probar el proyecto.
+- Usuario: admin
+- Contraseña: admin1
 
 ## Feedback y Contribuciones
 Invitamos a usuarios y desarrolladores a proporcionar feedback y contribuir al proyecto para su mejora continua.
