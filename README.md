@@ -28,10 +28,10 @@ Este proyecto es un sistema web diseñado para estudiantes de Ingeniería de Sof
 Este sistema busca mejorar significativamente la interacción y colaboración entre estudiantes, adaptándose a un entorno educativo cada vez más digitalizado y orientado a la tecnología.
 
 ## Instrucciones de Uso
-- Usuario contraseña de Acceso para probar el proyecto.
+Usuario contraseña de Acceso para probar el proyecto.
 - Usuario: admin
 - Contraseña: admin1
 
 ## Feedback y Contribuciones
 Invitamos a usuarios y desarrolladores a proporcionar feedback y contribuir al proyecto para su mejora continua.
-Proyecto Deployado: https://proyectoangular.vercel.app/login
+- Proyecto Deployado: https://proyectoangular.vercel.app/login
